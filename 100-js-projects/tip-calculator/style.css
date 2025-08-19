@@ -1,0 +1,31 @@
+*{box-sizing: border-box;}
+body{
+    background-color: #f4f4f4;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.container{
+    background-color: white;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+h1 {
+    margin-top: 0;
+    text-align: center;
+    color: white;
+}
+
+input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+button{
+    
+ }
