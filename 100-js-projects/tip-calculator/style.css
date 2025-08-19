@@ -1,31 +1,99 @@
 *{box-sizing: border-box;}
 body{
-    background-color: #f4f4f4;
-    font-family:Arial, Helvetica, sans-serif;
+    background-color: #FAF8F5;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .container{
     background-color: white;
-    max-width: 600px;
+    max-width: 500px;
     margin: 100px auto;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     border-radius: 10px;
+    min-height: 800px; 
 }
 h1 {
     margin-top: 0;
     text-align: center;
-    color: white;
+    color: #600047;
+    font-weight: bold;
 }
 
 input{
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 15px;
     border-radius: 4px;
+    background-color: #cfd5da;
+    border: 1px solid #ccc;
     margin: 10px 0;
     width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
 }
 
-button{
-    
- }
+button#calculate-button{
+    justify-content: center;
+    width: 48.65%;
+    padding: 20px;
+    background-color: #8E0045;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button#calculate-button:hover{
+    background-color: #630231;
+}
+
+button#reset-button{
+    justify-content: center;
+    width: 48.65%;
+    padding: 20px;
+    background-color: #9E0031;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button#reset-button:hover{
+    background-color: #86032d;
+}
+
+button#tip-button{
+    justify-content: center;
+    width: 48.65%;
+    padding: 25px;
+    background-color: #77005756;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 4px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+button#tip-button:hover{
+    background-color: #600047;
+}
+
+label{
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
