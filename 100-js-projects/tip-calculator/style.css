@@ -1,16 +1,15 @@
 *{box-sizing: border-box;}
 body{
     background-color: #FAF8F5;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Courier New', Courier, monospace;
 }
 .container{
     background-color: white;
     max-width: 500px;
     margin: 100px auto;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     border-radius: 10px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     min-height: 800px; 
 }
 h1 {
@@ -36,58 +35,58 @@ button#calculate-button{
     justify-content: center;
     width: 48.65%;
     padding: 20px;
-    background-color: #8E0045;
+    background-color: #76008e;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
-    margin-right: 4px;
+    margin-right: 1px;
     font-size: 15px;
     font-weight: bold;
 }
 
 button#calculate-button:hover{
-    background-color: #630231;
+    background-color: #580263;
 }
 
 button#reset-button{
     justify-content: center;
     width: 48.65%;
     padding: 20px;
-    background-color: #9E0031;
+    background-color: #492177;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
-    margin-right: 4px;
+    margin-right: 1px;
     font-size: 15px;
     font-weight: bold;
 }
 
 button#reset-button:hover{
-    background-color: #86032d;
+    background-color: #2f154d;
 }
 
 button#tip-button{
     justify-content: center;
     width: 48.65%;
     padding: 25px;
-    background-color: #77005756;
+    background-color: #63007746;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
-    margin-right: 4px;
+    margin-right: 1px;
     font-size: 15px;
     font-weight: bold;
 
 }
 
 button#tip-button:hover{
-    background-color: #600047;
+    background-color: #600046;
 }
 
 label{
@@ -96,4 +95,32 @@ label{
     color: #333;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.container-total{
+    background-color: white;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 1px;
+    box-shadow: 0 0px 3px rgba(0,0,0,0.2);
+    min-height: 50px; 
+    
+}
+
+.tip-row, 
+.total-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-style: ;
+    margin-bottom: 0%;
+    font-weight: bold;
+
+}
+.each-guest {
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
+    font-style: italic;
 }
