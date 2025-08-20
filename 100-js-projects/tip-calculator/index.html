@@ -10,37 +10,58 @@
 <body>
     <div class="container">
         <h1>TIP CALCULATOR</h1>
-        <label for="bill-amount">Bill Amount:</label>
-        <input type="number" id="bill-amount" placeholder="Enter bill amount">
-        <br/>
-        <label for="tip-percentage">Service Tip</label>
-        <button id="tip-button">5%</button>
-        <button id="tip-button">10%</button>
-        <br>
-        <button id="tip-button">15%</button>
-        <button id="tip-button">Custom</button>
-        <br/>
-        <button id="reset-button">RESET</button>
-        <button id="calculate-button">CALCULATE</button>
-        <br/>
+        
+        <div class="input-row">
+            <label for="bill-amount">Bill Amount:</label>
+            <input type="number" id="bill-amount" placeholder="0">
+        </div>
+
+        <div class="input-row">
+            <label for="tip-percentage">Service Tip</label>
+            <div class="tip-buttons">
+                <button class="tip-button" data-tip="5">5%</button>
+                <button class="tip-button" data-tip="10">10%</button>
+                <button class="tip-button" data-tip="15">15%</button>
+                <input type="number" id="custom-tip" placeholder="Custom">
+            </div>
+        </div>
+
+        <div class="input-row guest-count-row">
+            <label for="guestCount">No. of Guests</label>
+            <output id="count">1</output>
+            <input 
+                type="range"
+                id="guestCount"
+                min="1"
+                max="20"
+                value="1"
+            >
+        </div>
+
+        <div class="button-row">
+            <button id="reset-button">RESET</button>
+            <button id="calculate-button">CALCULATE</button>
+        </div>
 
         <div class="container-total">
-        <label for="total-amount">Total Amount</label>
+            <div class="total-amount-row">
+                <label for="total-amount">Total Amount</label>
+                <output id="total-amount-number" class="total-amount-number">0</output>
+            </div>
 
-        <div class="tip-row">
-        <label for="tip">Tip</label>
-        <span class="each-guest">each guest</span>
-        </div>
+            <div class="tip-row">
+                <label for="tip">Tip</label>
+                <span class="each-guest">/each guest</span>
+                <output id="tip-number" class="tip-number">0</output>
+            </div>
 
-        <div class="total-row">
-            <label for="total">Total</label>
-            <span class="each-guest">each guest</span>
-        </div>
-
-        <span id="total-amount"></span>
-        <span id="tip"></span>
-        <span id="total"></span>
+            <div class="total-row">
+                <label for="total">Total</label>
+                <span class="each-guest">/each guest</span>
+                <output id="total-number" class="total-number">0</output>
+            </div>
         </div>
     </div>
+
 </body>
 </html>

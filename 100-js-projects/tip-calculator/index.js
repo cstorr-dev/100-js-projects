@@ -1,14 +1,76 @@
-const btnElement = document.getElementById('calculate');
-const billInput = document.getElementById('bill-amount');
-const tipInput = document.getElementById('tip-percentage');
-const tipAmount = document.getElementById('tip-amount');
-const totalAmount = document.getElementById('total-amount');
+document.addEventListener('DOMContentLoaded', function() {
+    const btnElement = document.getElementById('calculate-button');
+    const resetBtn = document.getElementById('reset-button');
+    const billInput = document.getElementById('bill-amount');
+    const customTipInput = document.getElementById('custom-tip');
+    const tipOutput = document.getElementById('tip-number');
+    const totalOutput = document.getElementById('total-number');
+    const totalAmountOutput = document.getElementById('total-amount-number');
+    const tipButtons = document.querySelectorAll('.tip-button');
+    const guestCountInput = document.getElementById('guestCount');
+    const countOutput = document.getElementById('count');
 
-btnElement.addEventListener('click', function() {
-    const bill = parseFloat(billInput.value);
-    const tip = parseFloat(tipInput.value);
-    const tipCalc = (bill * tip) / 100;
-    const totalCalc = bill + tipCalc;
-    tipAmount.textContent = tipCalc.toFixed(2);
-    totalAmount.textContent = totalCalc.toFixed(2);
+    let selectedTip = null;
+
+    // Tip button selection
+    tipButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tipButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedTip = parseFloat(btn.dataset.tip);
+            customTipInput.value = '';
+            customTipInput.classList.remove('active');
+        });
+    });
+
+    // Custom tip input handling
+    customTipInput.addEventListener('focus', () => {
+        tipButtons.forEach(b => b.classList.remove('active'));
+        customTipInput.classList.add('active');
+        selectedTip = null;
+    });
+
+    customTipInput.addEventListener('blur', () => {
+        customTipInput.classList.remove('active');
+    });
+
+    // Guest count slider (only one event listener needed)
+    guestCountInput.addEventListener('input', function() {
+        countOutput.textContent = this.value;
+    });
+
+    // Calculate button
+    btnElement.addEventListener('click', function() {
+        const bill = parseFloat(billInput.value) || 0;
+        const guests = parseInt(guestCountInput.value) || 1;
+        const tipPercent = selectedTip !== null ? selectedTip : (parseFloat(customTipInput.value) || 0);
+        
+        const tipTotal = (bill * tipPercent) / 100;
+        const totalWithTip = bill + tipTotal;
+        const tipPerGuest = tipTotal / guests;
+        const totalPerGuest = totalWithTip / guests;
+
+        // Update outputs
+        totalAmountOutput.textContent = totalWithTip.toFixed(2);
+        tipOutput.textContent = tipPerGuest.toFixed(2);
+        totalOutput.textContent = totalPerGuest.toFixed(2);
+    });
+
+    // Reset button
+    resetBtn.addEventListener('click', function() {
+        billInput.value = '';
+        customTipInput.value = '';
+        guestCountInput.value = '1';
+        countOutput.textContent = '1';
+        
+        // Clear tip selection
+        tipButtons.forEach(b => b.classList.remove('active'));
+        customTipInput.classList.remove('active');
+        selectedTip = null;
+        
+        // Reset outputs
+        totalAmountOutput.textContent = '0';
+        tipOutput.textContent = '0';
+        totalOutput.textContent = '0';
+    });
 });

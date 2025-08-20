@@ -10,7 +10,7 @@ body{
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0px 10px rgba(0,0,0,0.2);
-    min-height: 800px; 
+    min-height: 200px; 
 }
 h1 {
     margin-top: 0;
@@ -19,7 +19,7 @@ h1 {
     font-weight: bold;
 }
 
-input{
+#bill-amount{
     padding: 15px;
     border-radius: 4px;
     background-color: #cfd5da;
@@ -48,6 +48,8 @@ button#calculate-button{
 
 button#calculate-button:hover{
     background-color: #580263;
+    color: #fff;
+
 }
 
 button#reset-button{
@@ -67,14 +69,18 @@ button#reset-button{
 
 button#reset-button:hover{
     background-color: #2f154d;
+    color:#fff;
+
 }
 
-button#tip-button{
+/* Removed old tip-button styles - now using .tip-button class above */
+
+#custom-tip{
     justify-content: center;
     width: 48.65%;
     padding: 25px;
     background-color: #63007746;
-    color: white;
+    color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -82,11 +88,18 @@ button#tip-button{
     margin-right: 1px;
     font-size: 15px;
     font-weight: bold;
+    text-align: center;
 
 }
-
-button#tip-button:hover{
+ 
+#custom-tip:hover {
     background-color: #600046;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #000;
+    opacity: 1; 
 }
 
 label{
@@ -109,18 +122,102 @@ label{
 }
 
 .tip-row, 
-.total-row {
+.total-row, 
+.total-amount-row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 5px;
-    font-style: ;
-    margin-bottom: 0%;
+    margin-bottom: 10px;
     font-weight: bold;
-
 }
+
+.label-container {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.total-amount-number,
+.tip-number,
+.total-number {
+    color: #76008e;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .each-guest {
     font-size: 12px;
     color: #666;
-    margin-top: 3px;
     font-style: italic;
+    
+}
+
+output {
+    display: flex;
+    text-align: right;
+    align-items: center;
+    margin-left: auto;
+    font-size: 24px;
+    font-weight: bold;
+    color: #76008e;
+}
+
+.input-row {
+    margin-bottom: 15px;
+}
+
+.tip-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tip-button {
+    width: 48%;
+    padding: 25px;
+    background-color: #63007746;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tip-button:hover,
+.tip-button.active {
+    background-color: #600046;
+    color: #fff;
+}
+
+.guest-count-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guest-count-row label {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+#count {
+    font-size: 18px;
+    font-weight: bold;
+    color: #76008e;
+    min-width: 30px;
+    text-align: center;
+}
+
+#guestCount {
+    flex: 1;
+    margin: 0;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
 }
