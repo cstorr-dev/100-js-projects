@@ -193,28 +193,33 @@ output {
     color: #fff;
 }
 
-.guest-count-row {
+.guest-count label {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.guest-count-row label {
-    margin: 0;
-    flex-shrink: 0;
+.guest-count input {
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #cfd5da;
+    cursor: pointer;
+    margin-block: 10px;
+
 }
 
-#count {
-    font-size: 18px;
-    font-weight: bold;
-    color: #76008e;
-    min-width: 30px;
-    text-align: center;
-}
+.guest-count input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #600046;
+    border: 2px solid var(--thumb-border-color);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    cursor: pointer;
 
-#guestCount {
-    flex: 1;
-    margin: 0;
 }
 
 .button-row {

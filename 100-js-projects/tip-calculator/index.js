@@ -23,21 +23,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Custom tip input handling
-    customTipInput.addEventListener('focus', () => {
-        tipButtons.forEach(b => b.classList.remove('active'));
-        customTipInput.classList.add('active');
-        selectedTip = null;
-    });
-
     customTipInput.addEventListener('blur', () => {
         customTipInput.classList.remove('active');
     });
 
-    // Guest count slider (only one event listener needed)
-    guestCountInput.addEventListener('input', function() {
-        countOutput.textContent = this.value;
-    });
+    // Guest count slider 
+ const syncGuests = () => {
+    if (guestCountInput && countOutput) {
+      const val = guestCountInput.value;
+      countOutput.textContent = val; // visible number
+      countOutput.value = val;       // optional: form value for <output>
+    }
+  };
+  syncGuests();
+  if (guestCountInput) guestCountInput.addEventListener('input', syncGuests);
+}
 
     // Calculate button
     btnElement.addEventListener('click', function() {
