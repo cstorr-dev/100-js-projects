@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // convert from USD -> selected currency for display
   const convert = (amountInUSD) => amountInUSD * (RATES[currentCurrency] ?? 1);
 
-  // format using selected currency
+  // formated using selected currency
   const money = (n) =>
     new Intl.NumberFormat(undefined, { style: 'currency', currency: currentCurrency }).format(n);
 
@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function calculate() {
-    // assume bill input is in USD (the base). If not, tell me your base and I’ll adapt.
     const bill   = Math.max(0, toNumber(billInput?.value, 0));
     const guests = Math.max(1, toNumber(guestInput?.value, 1));
     const tip    = bill * (toNumber(tipPercent, 0) / 100);
@@ -60,14 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalC         = convert(total);
     const totalPerGuestC = convert(totalPerGuest);
 
-    // paint
     tipOut.textContent         = money(tipPerGuestC);
     totalAmountOut.textContent = money(totalC);
     perPersonOut.textContent   = money(totalPerGuestC);
     if (countOut) countOut.textContent = guests;
   }
 
-  // --- currency tabs: set active + currency, then recalc ---
+  // currency tabs - set active & currency then recalc
   currencyTabs.forEach(btn => {
     btn.addEventListener('click', () => {
       currencyTabs.forEach(b => b.classList.remove('active'));
@@ -93,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // custom tip — clears buttons & stays highlighted solo
+  // custom tip — clears btns & stays highlighted
   const activateCustom = () => {
     tipButtons.forEach(b => b.classList.remove('active'));
     setCustomActive(true);
@@ -111,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (customTipInput.value.trim() === '') setCustomActive(false);
   });
 
-  // reset
+  // reset btn
   resetBtn?.addEventListener('click', () => {
     billInput.value = '';
     customTipInput.value = '';
@@ -119,9 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tipPercent = 0;
     setCustomActive(false);
     tipButtons.forEach(b => b.classList.remove('active'));
-    // keep currentCurrency as-is, or reset to USD if you prefer:
-    // currentCurrency = 'USD';
-    // currencyTabs.forEach(b => b.classList.toggle('active', b.dataset.currency === 'USD'));
     calculate();
   });
 
