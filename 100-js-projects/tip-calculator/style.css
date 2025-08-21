@@ -19,17 +19,36 @@ body{
     z-index: 1;
     position: absolute;
     max-width: 450px;
-    bottom: 435px;        /* stick to the bottom */
-    left: 1300px;           /* stick to the right */
-    background-color: white;
-    padding: 10px 20px;
+    bottom: 410px;        /* stick to the bottom */
+    left: 1250px;           /* stick to the right */
+    background-color: #ffffff00;
+    padding: 15px 20px;
     border-radius: 10px 10px 10px 10px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
 .tab-button {
-    gap: 10px;
+    background-color: #63007700;
+    background: #63007746;
+    color: #000000;
+    padding: 15px;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.tab-button.active {
+    background-color: #600046;
+    color: #fff;
+}
+
+.tab-button:hover{
+    background-color: #6000468a;
+    color: #fff;
 }
 
 h1 {
@@ -65,7 +84,7 @@ button#reset-button {
   display: block;          /* forces it onto its own line */
   width: 100%;             /* stretches across parent container */
   padding: 20px;
-  background-color: #492177;
+  background-color: #7336b8ab;
   color: white;
   border: none;
   border-radius: 5px;
@@ -75,9 +94,9 @@ button#reset-button {
   font-weight: bold;
 }
 
-/* Removed old tip-button styles - now using .tip-button class above */
-
-
+button#reset-button:hover {
+  background-color: #7336b8;
+}
 
 input#custom-tip {
     justify-content: center;
