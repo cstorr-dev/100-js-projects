@@ -4,6 +4,7 @@ body{
     font-family:'Courier New', Courier, monospace;
 }
 .container{
+    z-index: 2;
     background-color: white;
     max-width: 500px;
     margin: 100px auto;
@@ -11,7 +12,26 @@ body{
     border-radius: 10px;
     box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     min-height: 200px; 
+    position: relative;
 }
+
+.tab-container {
+    z-index: 1;
+    position: absolute;
+    max-width: 450px;
+    bottom: 435px;        /* stick to the bottom */
+    left: 1300px;           /* stick to the right */
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.tab-button {
+    gap: 10px;
+}
+
 h1 {
     margin-top: 0;
     text-align: center;
@@ -29,53 +49,37 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
-}
-
-button#calculate-button{
-    justify-content: center;
-    width: 48.65%;
-    padding: 20px;
-    background-color: #76008e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-right: 1px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-button#calculate-button:hover{
-    background-color: #580263;
-    color: #fff;
 
 }
 
-button#reset-button{
-    justify-content: center;
-    width: 48.65%;
-    padding: 20px;
-    background-color: #492177;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    margin-right: 1px;
-    font-size: 15px;
-    font-weight: bold;
+#bill-amount::placeholder {
+  opacity: .6;
+  color: #000;
+}
+#bill-amount:focus::placeholder {
+  color: transparent;
 }
 
-button#reset-button:hover{
-    background-color: #2f154d;
-    color:#fff;
 
+button#reset-button {
+  display: block;          /* forces it onto its own line */
+  width: 100%;             /* stretches across parent container */
+  padding: 20px;
+  background-color: #492177;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 /* Removed old tip-button styles - now using .tip-button class above */
 
-#custom-tip{
+
+
+input#custom-tip {
     justify-content: center;
     width: 48.65%;
     padding: 25px;
@@ -91,16 +95,19 @@ button#reset-button:hover{
     text-align: center;
 
 }
- 
-#custom-tip:hover {
-    background-color: #600046;
-    color: #fff;
+
+input#custom-tip.active {
+  background-color: #600046; 
+  color: #fff;
 }
 
-input::placeholder {
-    color: #000;
-    opacity: 1; 
+#custom-tip::placeholder { opacity: .6; color: #000; }
+#custom-tip:focus { 
+    outline: none; 
+    background-color: #63007746; 
+    color: #000000; 
 }
+#custom-tip:focus::placeholder { color: transparent; } 
 
 label{
     display: block;
@@ -187,7 +194,6 @@ output {
     font-weight: bold;
 }
 
-.tip-button:hover,
 .tip-button.active {
     background-color: #600046;
     color: #fff;

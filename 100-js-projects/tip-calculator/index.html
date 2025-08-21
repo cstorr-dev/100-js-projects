@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <script src="app.js" defer></script>
     <title>Tip Calculator</title>
 </head>
+
 <body>
     <div class="container">
         <h1>TIP CALCULATOR</h1>
@@ -19,9 +21,10 @@
         <div class="input-row">
             <label for="tip-percentage">Service Tip</label>
             <div class="tip-buttons">
-                <button class="tip-button" data-tip="5">5%</button>
-                <button class="tip-button" data-tip="10">10%</button>
-                <button class="tip-button" data-tip="15">15%</button>
+                <button type="button" class="tip-button" data-tip="5">5%</button>
+                <button type="button" class="tip-button" data-tip="10">10%</button>
+                <button type="button" class="tip-button" data-tip="15">15%</button>
+
                 <input type="number" id="custom-tip" placeholder="Custom">
             </div>
         </div>
@@ -43,7 +46,6 @@
 
         <div class="button-row">
             <button id="reset-button">RESET</button>
-            <button id="calculate-button">CALCULATE</button>
         </div>
 
         <div class="container-total">
@@ -65,6 +67,14 @@
             </div>
         </div>
     </div>
+        <div class="tab-container">
+            <button data-currency="USD" class="tab-button active">$</button>
+            <button data-currency="EUR" class="tab-button">€</button>
+            <button data-currency="GBP" class="tab-button">£</button>
+            <button data-currency="JPY" class="tab-button">¥</button>
+        </div>
+
+        </div>
 
 </body>
 </html>
